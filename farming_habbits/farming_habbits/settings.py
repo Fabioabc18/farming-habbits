@@ -81,7 +81,6 @@ DATABASES = {
         'PASSWORD': "Thecroods123!",
         'HOST': '176.9.24.52',
         'PORT': 3306,
-
     }
 }
 
