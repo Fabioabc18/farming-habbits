@@ -51,19 +51,45 @@
                                             {% csrf_token %}
                                             {{ form }}
 
-                                            <button type="submit">Sign
-                                                up</button>
+                                            <button 
+                                            type="submit"
+                                            class="btn btn-primary d-block btn-user w-100"
+                                            style="background-color: #203E32;"
+                                            >Registar</button>
                                         </form>
+                                        <div class="mb-3">
+                                            <div class="form-check">
+                                                <input
+                                                    class="form-check-input"
+                                                    type="checkbox"
+                                                    value
+                                                    id="invalidCheck"
+                                                    required />
+                                                <label
+                                                    class="form-check-label"
+                                                    for="invalidCheck">
+                                                    Concordo com os <a
+                                                        href="#">Termos</a>
+                                                    e <a
+                                                        href="#">Condições</a>.
+                                                </label>
+                                                <div
+                                                    class="invalid-feedback">
+                                                    Deve de concordar antes
+                                                    de enviar.
+                                                </div>
+                                            </div>
+                                        </div>
 
-                                        <h4> Already have an account? <a
-                                                href="/accounts/login">Sign
-                                                in</a></h4>
+                                        <h4> Já tem uma conta criada? <a
+                                                href="/accounts/login">Login</a></h4>
                                         <script
-                                            src="assets/bootstrap/js/bootstrap.min.js"></script>
+                                            src="{% static 'bootstrap/js/bootstrap.min.js' %} "
+                                            ></script>
                                         <script
-                                            src="assets/js/bs-init.js"></script>
+                                            src="{% static 'js/bs-init.js' %}" ></script>
                                         <script
-                                            src="assets/js/theme.js"></script>
+                                            src="{% static 'js/theme.js' %}"></script>
     </body>
 
 </html>
