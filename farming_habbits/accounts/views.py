@@ -1,39 +1,46 @@
-from django.shortcuts import redirect
-from django.contrib.auth.forms import UserCreationForm
+from django.shortcuts import render, redirect
 from django.template import loader
 from django.http import HttpResponse
+from .forms import RegistrationForm
 from django.contrib.auth.models import User
 
 def register(request):
     template = loader.get_template("registration/register.html")
     if request.method == "POST":
-        form = UserCreationForm(request.POST)
-        username = request.POST.get("username")
-        email = request.POST.get("email")
-        contacto = request.POST.get("contacto")
+        form = RegistrationForm(request.POST)
         
+        if form.is_valid():
+            username = form.cleaned_data.get("username")
+            email = form.cleaned_data.get("email")
+            password1 = form.cleaned_data.get("password1")
+            password2 = form.cleaned_data.get("password2")
 
-        try:
-            if form.is_valid() and form["password1"].value() == form["password2"].value():
-                user = User.objects.create_user(username=username, password=form["password1"].value(), email=email, contacto = contacto)
-                user.save()
-                return redirect("/")
+            if password1 == password2:
+                try:
+                    user = User.objects.create_user(username=username, password=password1, email=email)
+                    user.save()
+                    return redirect("/")
+                except Exception as e:
+                    context = {
+                        "form": form,
+                        "message": f"Ocorreu um erro: {str(e)}"
+                    }
+                    return HttpResponse(template.render(context, request))
             else:
                 context = {
                     "form": form,
-                    "message": "Passwords diferentes!"
+                    "message": "As senhas não coincidem."
                 }
                 return HttpResponse(template.render(context, request))
-
-        except:
+        else:
             context = {
                 "form": form,
-                "message": "Ocorreu um erro!"
+                "message": "Por favor, corrija os erros no formulário."
             }
             return HttpResponse(template.render(context, request))
 
     else:
-        form = UserCreationForm()
+        form = RegistrationForm()
 
         context = {
             "form": form
