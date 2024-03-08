@@ -14,16 +14,17 @@
     </head>
     <body>
         <section id="formulario">
-            <div class="container">
-                <div class="row my-2" >
+            <div class="container-fluid">
+                <div class="row my-2">
                     <img
-                        src="https://picsum.photos/300/200"
+                        src="https://picsum.photos/700/600"
                         class="card-img-top"
                         alt="..." />
                 </div>
                 <div class="col-md-6">
                     <form class="row g-3 needs-validation" novalidate>
                         <div class="col-md-4">
+                            <div clas=""
                             <label for="validationCustom01"
                                 class="form-label my-2">Primeiro Nome</label>
                             <input
@@ -31,17 +32,6 @@
                                 class="form-control"
                                 id="validationCustom01"
                                 value="Mark"
-                                required />
-                            <div class="valid-feedback">Boa</div>
-                        </div>
-                        <div class="col-md-4">
-                            <label for="validationCustom02"
-                                class="form-label">Ultimo Nome</label>
-                            <input
-                                type="text"
-                                class="form-control"
-                                id="validationCustom02"
-                                value="Otto"
                                 required />
                             <div class="valid-feedback">Boa</div>
                         </div>
@@ -61,7 +51,38 @@
                                     Por favor escolha um username.
                                 </div>
                             </div>
-                        </div>                     
+                        </div>
+                        <div class="col-md-4">
+                            <label for="validationCustomContact"
+                                class="form-label">Contacto</label>
+                            <div class="input-group">
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    id="validationCustomContact"
+                                    aria-describedby="inputGroupPrepend"
+                                    required />
+                                <div class="invalid-feedback">
+                                    Por favor introduza um Contacto.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputPassword1"
+                                class="form-label">Password</label>
+                            <input
+                                type="password"
+                                class="form-control"
+                                id="exampleInputPassword1" />
+                        </div>
+                        <div class="mb-3 my-2">
+                            <label for="exampleInputPassword1"
+                                class="form-label">Confirmar Password</label>
+                            <input
+                                type="password"
+                                class="form-control"
+                                id="exampleInputPassword1" />
+                        </div>
                         <div class="col-12">
                             <div class="form-check">
                                 <input
@@ -72,15 +93,17 @@
                                     required />
                                 <label class="form-check-label"
                                     for="invalidCheck">
-                                    Concordo com os Termos e Condições
+                                    Concordo com os <a href="#">Termos</a> e <a
+                                        href="#">Condições</a>.
                                 </label>
                                 <div class="invalid-feedback">
                                     Deve de concordar antes de enviar.
                                 </div>
                             </div>
                         </div>
-                        <div class="col-12">
-                            <button class="btn btn-primary" type="submit">
+                        <div class="col-12 text-center">
+                            <button class="btn" type="submit"
+                                style="background-color: darkgreen;color:white; margin-bottom:0.5rem;">
                                 Criar Conta
                             </button>
                         </div>
