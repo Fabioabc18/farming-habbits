@@ -21,7 +21,7 @@ def register(request):
                     user = User.objects.create_user(username=username, password=password1, email=email)
                     user.save()
                     messages.success(request, "Conta criada com sucesso. Faça login agora!")
-                    return redirect("/login/")  
+                    return redirect("login")  
                 except Exception as e:
                     context = {
                         "form": form,
@@ -45,6 +45,7 @@ def register(request):
         form = RegistrationForm()
 
         context = {
-            "form": form
+            "form": form,
+            
         }
         return HttpResponse(template.render(context, request))

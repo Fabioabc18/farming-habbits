@@ -43,15 +43,15 @@
                                             <h4 class="text-dark mb-4">Seja bem vindo!</h4>
                                         </div>
                                         <h2>Regista a tua conta</h2>
-                                        
-                                        {% if message %}
+                                         
+                       
+                                        <form method="POST">
+                                            {% csrf_token %}
+                                            {% if message %}
                                             <div class="alert alert-info" role="alert">
                                                 {{ message }}
                                             </div>
                                         {% endif %}
-                                        
-                                        <form method="POST">
-                                            {% csrf_token %}
                                             {{ form }}
                                         
                                             <button 
@@ -85,7 +85,7 @@
                                         </div>
 
                                         <h4> Já tem uma conta criada? <a
-                                                href="/accounts/login">Login</a></h4>
+                                                href="{% url 'login' %}">Login</a></h4>
                                         <script
                                             src="{% static 'bootstrap/js/bootstrap.min.js' %} "
                                             ></script>
