@@ -1,8 +1,9 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import redirect
 from django.template import loader
 from django.http import HttpResponse
 from .forms import RegistrationForm
 from django.contrib.auth.models import User
+from django.contrib import messages
 
 def register(request):
     template = loader.get_template("registration/register.html")
@@ -19,7 +20,8 @@ def register(request):
                 try:
                     user = User.objects.create_user(username=username, password=password1, email=email)
                     user.save()
-                    return redirect("/")
+                    messages.success(request, "Conta criada com sucesso. Faça login agora!")
+                    return redirect("/login/")  
                 except Exception as e:
                     context = {
                         "form": form,

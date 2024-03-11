@@ -34,29 +34,32 @@
                                     class="col-lg-6 col-sm-6 d-lg-flex d-sm-flex">
                                     <img class="img-fluid"
                                         src="{% static '/img/FarmingHabits.png' %}"                                    
-                                        alt="Generic placeholder image"
-                                        style="size;">
+                                        alt="Generic placeholder image">
+                                        
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="p-5">
                                         <div class="text-center">
-                                            <h4 class="text-dark mb-4">Seja bem
-                                                vindo!</h4>
+                                            <h4 class="text-dark mb-4">Seja bem vindo!</h4>
                                         </div>
                                         <h2>Regista a tua conta</h2>
-
-                                        <h1>{{ message }}</h1>
-
+                                        
+                                        {% if message %}
+                                            <div class="alert alert-info" role="alert">
+                                                {{ message }}
+                                            </div>
+                                        {% endif %}
+                                        
                                         <form method="POST">
                                             {% csrf_token %}
                                             {{ form }}
-
+                                        
                                             <button 
-                                            type="submit"
-                                            class="btn btn-primary d-block btn-user w-100"
-                                            style="background-color: #203E32;"
+                                                type="submit"
+                                                class="btn btn-primary d-block btn-user w-100"
+                                                style="background-color: #203E32;"
                                             >Registar</button>
-                                        </form>
+                                        </form>                  
                                         <div class="mb-3">
                                             <div class="form-check">
                                                 <input
