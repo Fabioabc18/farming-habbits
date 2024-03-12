@@ -65,7 +65,7 @@ def login_view(request):
         password = request.POST.get("password", "").strip()
 
         if not username or not password:
-            messages.error(request, "Please provide both username and password.")
+            messages.error(request, "Por favor,providencie o username e password.")
             return redirect("home")
 
         user = authenticate(username=username, password=password)
@@ -74,7 +74,7 @@ def login_view(request):
             login(request, user)
             return redirect("home")
         else:
-            messages.error(request, "Invalid username or password.")
+            messages.error(request, "Username inválido ou password.")
             return redirect("home")
 
     return render(request, "registration/login.html")
