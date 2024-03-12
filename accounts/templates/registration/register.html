@@ -85,7 +85,7 @@
                                         </div>
 
                                         <h4> Já tem uma conta criada? <a
-                                                href="{% url 'login' %}">Login</a></h4>
+                                                href="/accounts/login">Login</a></h4>
                                         <script
                                             src="{% static 'bootstrap/js/bootstrap.min.js' %} "
                                             ></script>
@@ -93,6 +93,14 @@
                                             src="{% static 'js/bs-init.js' %}" ></script>
                                         <script
                                             src="{% static 'js/theme.js' %}"></script>
+                                        {% if redirect %}
+                                        <script>
+                                            function redirect(){       window.location.href = "{% url 'login' %}";
+                                            }
+                                        
+                                            setTimeout(redirect, 3000);
+                                        </script>
+                                        {% endif %}
     </body>
 
 </html>

@@ -1,12 +1,16 @@
-from django.shortcuts import redirect
+
 from django.template import loader
 from django.http import HttpResponse
 from .forms import RegistrationForm
 from django.contrib.auth.models import User
+from django.shortcuts import render,redirect
+from django.contrib.auth import authenticate, login 
 from django.contrib import messages
+
 
 def register(request):
     template = loader.get_template("registration/register.html")
+    template1 = loader.get_template("registration/login.html")
     if request.method == "POST":
         form = RegistrationForm(request.POST)
         
@@ -20,8 +24,13 @@ def register(request):
                 try:
                     user = User.objects.create_user(username=username, password=password1, email=email)
                     user.save()
-                    messages.success(request, "Conta criada com sucesso. Faça login agora!")
-                    return redirect("login")  
+                    context = {
+                        "form": form,
+                        'redirect' : True,
+                        'message': "Conta criada com sucesso. Faça login agora!"
+                    } 
+                    return HttpResponse(template.render(context,request))
+
                 except Exception as e:
                     context = {
                         "form": form,
@@ -49,3 +58,23 @@ def register(request):
             
         }
         return HttpResponse(template.render(context, request))
+    
+def login_view(request):
+    if request.method == "POST":
+        username = request.POST.get("username", "").lower().strip()
+        password = request.POST.get("password", "").strip()
+
+        if not username or not password:
+            messages.error(request, "Please provide both username and password.")
+            return redirect("home")
+
+        user = authenticate(username=username, password=password)
+        
+        if user is not None:
+            login(request, user)
+            return redirect("home")
+        else:
+            messages.error(request, "Invalid username or password.")
+            return redirect("home")
+
+    return render(request, "registration/login.html")
