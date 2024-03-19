@@ -6,4 +6,4 @@ def home(request):
     template = loader.get_template("home.html")
     
 
-    return HttpResponse (template.render( request))
+    return HttpResponse(template.render(request=request))
