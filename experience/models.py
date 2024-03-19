@@ -26,3 +26,4 @@ class Plant(models.Model):
    user = models.OneToOneField(get_user_model(), on_delete=models.CASCADE)
    experience = models.PositiveIntegerField(default=0)
    stage = models.PositiveIntegerField(default=1, validators=[MaxValueValidator(5)])
+   type = models.CharField(max_length=100)

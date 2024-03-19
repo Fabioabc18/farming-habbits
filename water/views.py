@@ -21,8 +21,8 @@ def water_consumption(request):
        form = WaterConsumptionForm()
 
    # isto pode ser util, nao apagar para já :)
-   # update_experience_points(request, points_gained)
-   # update_plant_stage(request)
+    # update_experience_points(request, points_gained)
+    # update_plant_stage(request)
 
    water_data = WaterConsumption.objects.filter(user=request.user)
    return render(request, 'water_tracker/water_consumption.html', {'form': form, 'water_data': water_data})
