@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'accounts',
+    'home',
     
 ]
 
@@ -82,10 +83,10 @@ WSGI_APPLICATION = 'farming_habbits.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': "cdp_farming_habits",
-        'USER': "cdp_liliana",
-        'PASSWORD': "Thecroods123!",
-        'HOST': '176.9.24.52',
+        'NAME': "farming",
+        'USER': "root",
+        'PASSWORD': "1234",
+        'HOST': '127.0.0.1',
         'PORT': 3306,
     }
 }
