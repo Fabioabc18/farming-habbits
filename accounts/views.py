@@ -10,6 +10,7 @@ from django.contrib import messages
 
 def register(request):
     template = loader.get_template("registration/register.html")
+    
     if request.method == "POST":
         form = RegistrationForm(request.POST)
         
