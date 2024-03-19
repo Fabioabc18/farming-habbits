@@ -27,12 +27,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Dashboard - Brand</title>
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static '/bootstrap/css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i&amp;display=swap">
-    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
-    <link rel="stylesheet" href="assets/css/bs-theme-overrides.css">
-    <link rel="stylesheet" href="assets/css/untitled-1.css">
-    <link rel="stylesheet" href="assets/css/untitled.css">
+    <link rel="stylesheet" href="{% static '/fonts/fontawesome-all.min.css' %}">
+    <link rel="stylesheet" href="{% static '/css/bs-theme-overrides.css' %}">
+    <link rel="stylesheet" href="{% static '/css/untitled-1.css' %}">
+    <link rel="stylesheet" href="{% static '/css/untitled.css' %}">
 </head>
 
 <body id="page-top" style="height: auto;padding-bottom: 0px;margin-bottom: -43px;">
@@ -42,7 +42,7 @@
                 <nav class="navbar navbar-expand bg-white shadow mb-4 topbar static-top navbar-light">
                     <div class="container-fluid">
                         <div>
-                            <div class="dropdown no-arrow"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="#" style="padding-left: 0;height: 63px;width: 95.781px;padding-right: 39px;margin-right: -63px;"><img class="rounded-circle border img-profile" src="assets/img/avatars/Ativo%204.png" style="padding-right: 0px;padding-left: 0px;margin-right: 0;margin-left: -12px;" width="50" height="50"></a>
+                            <div class="dropdown no-arrow"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="#" style="padding-left: 0;height: 63px;width: 95.781px;padding-right: 39px;margin-right: -63px;"><img class="rounded-circle border img-profile" src="{% static '/img/avatars/Ativo%204.png' %}" style="padding-right: 0px;padding-left: 0px;margin-right: 0;margin-left: -12px;" width="50" height="50"></a>
                                 <div class="dropdown-menu shadow dropdown-menu-end animated--grow-in"><a class="dropdown-item" href="#"><i class="fas fa-user fa-sm fa-fw me-2 text-gray-400"></i>&nbsp;Profile</a><a class="dropdown-item" href="#"><i class="fas fa-cogs fa-sm fa-fw me-2 text-gray-400"></i>&nbsp;Settings</a><a class="dropdown-item" href="#"><i class="fas fa-list fa-sm fa-fw me-2 text-gray-400"></i>&nbsp;Activity log</a>
                                     <div class="dropdown-divider"></div><a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt fa-sm fa-fw me-2 text-gray-400"></i>&nbsp;Logout</a>
                                 </div>
@@ -98,7 +98,7 @@
                                 <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="#" style="padding-left: 6px;"><span class="badge bg-danger badge-counter">7</span><i class="fas fa-envelope fa-fw"></i></a>
                                     <div class="dropdown-menu dropdown-menu-end dropdown-list animated--grow-in">
                                         <h6 class="dropdown-header">alerts center</h6><a class="dropdown-item d-flex align-items-center" href="#">
-                                            <div class="dropdown-list-image me-3"><img class="rounded-circle" src="assets/img/avatars/avatar4.jpeg">
+                                            <div class="dropdown-list-image me-3"><img class="rounded-circle" src="{% static '/img/avatars/avatar4.jpeg' %}">
                                                 <div class="bg-success status-indicator"></div>
                                             </div>
                                             <div class="fw-bold">
@@ -106,7 +106,7 @@
                                                 <p class="small text-gray-500 mb-0">Emily Fowler - 58m</p>
                                             </div>
                                         </a><a class="dropdown-item d-flex align-items-center" href="#">
-                                            <div class="dropdown-list-image me-3"><img class="rounded-circle" src="assets/img/avatars/avatar2.jpeg">
+                                            <div class="dropdown-list-image me-3"><img class="rounded-circle" src="{% static '/img/avatars/avatar2.jpeg' %}">
                                                 <div class="status-indicator"></div>
                                             </div>
                                             <div class="fw-bold">
@@ -114,7 +114,7 @@
                                                 <p class="small text-gray-500 mb-0">Jae Chun - 1d</p>
                                             </div>
                                         </a><a class="dropdown-item d-flex align-items-center" href="#">
-                                            <div class="dropdown-list-image me-3"><img class="rounded-circle" src="assets/img/avatars/avatar3.jpeg">
+                                            <div class="dropdown-list-image me-3"><img class="rounded-circle" src="{% static '/img/avatars/avatar3.jpeg' %}">
                                                 <div class="bg-warning status-indicator"></div>
                                             </div>
                                             <div class="fw-bold">
@@ -122,7 +122,7 @@
                                                 <p class="small text-gray-500 mb-0">Morgan Alvarez - 2d</p>
                                             </div>
                                         </a><a class="dropdown-item d-flex align-items-center" href="#">
-                                            <div class="dropdown-list-image me-3"><img class="rounded-circle" src="assets/img/avatars/avatar5.jpeg">
+                                            <div class="dropdown-list-image me-3"><img class="rounded-circle" src="{% static '/img/avatars/avatar5.jpeg' %}">
                                                 <div class="bg-success status-indicator"></div>
                                             </div>
                                             <div class="fw-bold">
@@ -136,7 +136,7 @@
                             </li>
                             <li class="nav-item dropdown no-arrow">
                                 <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="#"><span class="d-lg-inline me-2 text-gray-600 small" style="font-size: 8px;transform: translate(7px);">40xp</span>
-                                        <div class="d-none d-sm-block topbar-divider"></div><span class="d-lg-inline me-2 text-gray-600 small" style="font-size: 8px;width: 13.4688px;">50xp</span><img class="border rounded-circle img-profile" src="assets/img/avatars/cereja.png">
+                                        <div class="d-none d-sm-block topbar-divider"></div><span class="d-lg-inline me-2 text-gray-600 small" style="font-size: 8px;width: 13.4688px;">50xp</span><img class="border rounded-circle img-profile" src="{% static '/img/avatars/cereja.png' %}">
                                     </a>
                                     <div class="dropdown-menu shadow dropdown-menu-end animated--grow-in"><a class="dropdown-item" href="#"><i class="fas fa-user fa-sm fa-fw me-2 text-gray-400"></i>&nbsp;Profile</a><a class="dropdown-item" href="#"><i class="fas fa-cogs fa-sm fa-fw me-2 text-gray-400"></i>&nbsp;Settings</a><a class="dropdown-item" href="#"><i class="fas fa-list fa-sm fa-fw me-2 text-gray-400"></i>&nbsp;Activity log</a>
                                         <div class="dropdown-divider"></div><a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt fa-sm fa-fw me-2 text-gray-400"></i>&nbsp;Logout</a>
@@ -167,7 +167,7 @@
                                                     <div></div>
                                                 </div>
                                             </div>
-                                            <div class="col-5 offset-0 justify-content-center align-items-center align-content-center"><img src="assets/img/avatars/cereja.png" width="107" height="91" loading="auto" title=""></div>
+                                            <div class="col-5 offset-0 justify-content-center align-items-center align-content-center"><img src="{% static '/img/avatars/cereja.png' %}" width="107" height="91" loading="auto" title=""></div>
                                         </div>
                                     </div>
                                 </div>
@@ -182,7 +182,7 @@
                                                 <div class="row row-cols-xl-5 justify-content-xl-center align-items-xl-center">
                                                     <div class="col col-6 col-xl-4">
                                                         <div class="card border-0 shadow-none">
-                                                            <div class="card-body d-flex align-items-center p-0" style="margin-right: 123px;padding-right: 19px;"><img class="rounded-circle flex-shrink-0 me-0 fit-cover" width="50" height="50" src="assets/img/avatars/cenoura.png">
+                                                            <div class="card-body d-flex align-items-center p-0" style="margin-right: 123px;padding-right: 19px;"><img class="rounded-circle flex-shrink-0 me-0 fit-cover" width="50" height="50" src="{% static '/img/avatars/cenoura.png' %}">
                                                                 <div>
                                                                     <h6 class="text-lowercase fw-bold text-start mb-0">Cenoura</h6>
                                                                     <p class="text-muted mb-1">90xp</p>
@@ -204,7 +204,7 @@
                                                     </div>
                                                     <div class="col col-6 col-xl-4">
                                                         <div class="card border-0 shadow-none">
-                                                            <div class="card-body d-flex align-items-center p-0" style="margin-right: 123px;padding-right: 19px;"><img class="rounded-circle flex-shrink-0 me-0 fit-cover" width="50" height="50" src="assets/img/avatars/cereja.png">
+                                                            <div class="card-body d-flex align-items-center p-0" style="margin-right: 123px;padding-right: 19px;"><img class="rounded-circle flex-shrink-0 me-0 fit-cover" width="50" height="50" src="{% static '/img/avatars/cereja.png' %}">
                                                                 <div>
                                                                     <h6 class="text-lowercase fw-bold text-start mb-0">Cerejas</h6>
                                                                     <p class="text-muted mb-1">40xp</p>
@@ -226,7 +226,7 @@
                                                     </div>
                                                     <div class="col col-6 col-xl-4">
                                                         <div class="card border-0 shadow-none">
-                                                            <div class="card-body d-flex align-items-center p-0" style="margin-right: 123px;padding-right: 19px;"><img class="rounded-circle flex-shrink-0 me-0 fit-cover" width="50" height="50" src="assets/img/avatars/uvas.png">
+                                                            <div class="card-body d-flex align-items-center p-0" style="margin-right: 123px;padding-right: 19px;"><img class="rounded-circle flex-shrink-0 me-0 fit-cover" width="50" height="50" src="{% static '/img/avatars/uvas.png' %}">
                                                                 <div>
                                                                     <h6 class="text-lowercase fw-bold text-start mb-0">uvas</h6>
                                                                     <p class="text-muted mb-1">100xp</p>
@@ -248,7 +248,7 @@
                                                     </div>
                                                     <div class="col col-6 col-xl-4">
                                                         <div class="card border-0 shadow-none">
-                                                            <div class="card-body d-flex align-items-center p-0" style="margin-right: 123px;padding-right: 19px;"><img class="rounded-circle flex-shrink-0 me-0 fit-cover" width="50" height="50" src="assets/img/avatars/abobora.png">
+                                                            <div class="card-body d-flex align-items-center p-0" style="margin-right: 123px;padding-right: 19px;"><img class="rounded-circle flex-shrink-0 me-0 fit-cover" width="50" height="50" src="{% static '/img/avatars/abobora.png' %}">
                                                                 <div>
                                                                     <h6 class="text-lowercase fw-bold text-start mb-0">abobora</h6>
                                                                     <p class="text-muted mb-1">80xp</p>
@@ -287,28 +287,28 @@
         </thead>
         <tbody>
             <tr>
-                <td><img class="rounded-circle me-2" height="30" src="assets/img/avatars/abobora.png" width="30">Abobora</td>
+                <td><img class="rounded-circle me-2" height="30" src="{% static '/img/avatars/abobora.png' %}" width="30">Abobora</td>
                 <td>80xp</td>
                 <td>5 dias</td>
                 <td>2008/11/28</td>
                 <td>2008/11/30</td>
             </tr>
             <tr>
-                <td><img class="rounded-circle me-2" height="30" src="assets/img/avatars/cenoura.png" width="30">Cenoura</td>
+                <td><img class="rounded-circle me-2" height="30" src="{% static '/img/avatars/cenoura.png' %}" width="30">Cenoura</td>
                 <td>90xp</td>
                 <td>7 dias</td>
                 <td>2009/10/09<br></td>
                 <td>2008/11/30</td>
             </tr>
             <tr>
-                <td><img class="rounded-circle me-2" height="30" src="assets/img/avatars/cereja.png" width="30">Cerejas</td>
+                <td><img class="rounded-circle me-2" height="30" src="{% static '/img/avatars/cereja.png' %}" width="30">Cerejas</td>
                 <td>40xp</td>
                 <td>3 dias</td>
                 <td>2009/01/12<br></td>
                 <td>2008/11/30</td>
             </tr>
             <tr>
-                <td><img class="rounded-circle me-2" height="30" src="assets/img/avatars/uvas.png" width="30">Uvinhas</td>
+                <td><img class="rounded-circle me-2" height="30" src="{% static '/img/avatars/uvas.png' %}" width="30">Uvinhas</td>
                 <td>100xp</td>
                 <td>10 dias</td>
                 <td>2012/10/13<br></td>
@@ -430,8 +430,8 @@
             </ul>
         </div>
     </div>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/js/theme.js"></script>
+    <script src="{% static '/bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="{% static '/js/theme.js' %}"></script>
 </body>
 
 </html>

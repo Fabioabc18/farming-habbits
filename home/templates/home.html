@@ -7,13 +7,13 @@
         <meta name="viewport"
             content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
         <title>Dashboard - Brand</title>
-        <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="{% static '/bootstrap/css/bootstrap.min.css' %}">
         <link rel="stylesheet"
             href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i&amp;display=swap">
         <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
-        <link rel="stylesheet" href="assets/css/bs-theme-overrides.css">
-        <link rel="stylesheet" href="assets/css/untitled-1.css">
-        <link rel="stylesheet" href="assets/css/untitled.css">
+        <link rel="stylesheet" href="{% static 'css/bs-theme-overrides.css' %}">
+        <link rel="stylesheet" href="{% static '/css/untitled-1.css' %}">
+        <link rel="stylesheet" href="{% static '/css/untitled.css' %}">
     </head>
 
     <body id="page-top">
@@ -30,7 +30,7 @@
                                         data-bs-toggle="dropdown" href="#"
                                         style="padding-left: 0;height: 63px;width: 95.781px;padding-right: 39px;margin-right: -63px;"><img
                                             class="rounded-circle border img-profile"
-                                            src="assets/img/avatars/Ativo%204.png"
+                                            src="{% static '/img/avatars/Ativo%204.png' %}"
                                             style="padding-right: 0px;padding-left: 0px;margin-right: 0;margin-left: -12px;"
                                             width="50" height="50"></a>
                                     <div
@@ -179,7 +179,7 @@
                                                 <div
                                                     class="dropdown-list-image me-3"><img
                                                         class="rounded-circle"
-                                                        src="assets/img/avatars/avatar4.jpeg">
+                                                        src="{% static '/img/avatars/avatar4.jpeg' %}">
                                                     <div
                                                         class="bg-success status-indicator"></div>
                                                 </div>
@@ -201,7 +201,7 @@
                                                 <div
                                                     class="dropdown-list-image me-3"><img
                                                         class="rounded-circle"
-                                                        src="assets/img/avatars/avatar2.jpeg">
+                                                        src="{% static '/img/avatars/avatar2.jpeg' %}">
                                                     <div
                                                         class="status-indicator"></div>
                                                 </div>
@@ -221,7 +221,7 @@
                                                 <div
                                                     class="dropdown-list-image me-3"><img
                                                         class="rounded-circle"
-                                                        src="assets/img/avatars/avatar3.jpeg">
+                                                        src="{% static '/img/avatars/avatar3.jpeg' %}">
                                                     <div
                                                         class="bg-warning status-indicator"></div>
                                                 </div>
@@ -244,7 +244,7 @@
                                                 <div
                                                     class="dropdown-list-image me-3"><img
                                                         class="rounded-circle"
-                                                        src="assets/img/avatars/avatar5.jpeg">
+                                                        src="{% static '/img/avatars/avatar5.jpeg' %}">
                                                     <div
                                                         class="bg-success status-indicator"></div>
                                                 </div>
@@ -284,7 +284,7 @@
                                                 class="d-lg-inline me-2 text-gray-600 small"
                                                 style="font-size: 8px;width: 13.4688px;">50xp</span><img
                                                 class="border rounded-circle img-profile"
-                                                src="assets/img/avatars/cereja.png">
+                                                src="{% static '/img/avatars/cereja.png' %}">
                                         </a>
                                         <div
                                             class="dropdown-menu shadow dropdown-menu-end animated--grow-in"><a
@@ -309,7 +309,7 @@
                         </div>
                     </nav>
                     <div class="col-md-6 col-xl-3 offset-lg-3 mb-4"
-                        style="background: url(&quot;assets/img/inspiracao/9285000.jpg&quot;);margin-bottom: -51px;padding-bottom: 0px;">
+                        style="background: url(&quot;{% static '/img/inspiracao/9285000.jpg' %}&quot;);margin-bottom: -51px;padding-bottom: 0px;">
                         <div class="card shadow border-start-primary py-2"
                             style="background: none;border-style: none;">
                             <div class="card-body"
@@ -633,7 +633,7 @@
                                                     </div>
                                                     <div class="col-auto">
                                                         <picture><img
-                                                                src="assets/img/comida/top-view-breakfast-bowl-table.jpg"
+                                                                src="{% static '/img/comida/top-view-breakfast-bowl-table.jpg' %}"
                                                                 style="width:80px;"></picture>
                                                     </div>
                                                 </div>
@@ -667,7 +667,7 @@
                                                     </div>
                                                     <div class="col-auto">
                                                         <picture><img
-                                                                src="assets/img/comida/wrap.jpg"
+                                                                src="{% static '/img/comida/wrap.jpg' %}"
                                                                 style="width:80px;"></picture>
                                                     </div>
                                                 </div>
@@ -700,7 +700,7 @@
                                                     </div>
                                                     <div class="col-auto">
                                                         <picture><img
-                                                                src="assets/img/comida/quiche.jpg"
+                                                                src="{% static '/img/comida/quiche.jpg' %}"
                                                                 style="width:80px;"></picture>
                                                     </div>
                                                 </div>
@@ -917,8 +917,8 @@
                                 d="M8 6.982C9.664 5.309 13.825 8.236 8 12 2.175 8.236 6.336 5.31 8 6.982" />
                         </svg></a><span class="d-none">New</span></button></li>
         </ul>
-        <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-        <script src="assets/js/theme.js"></script>
+        <script src="{% static '/bootstrap/js/bootstrap.min.js' %}"></script>
+        <script src="{% static '/js/theme.js' %}"></script>
     </body>
 
 </html>
