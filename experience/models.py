@@ -8,9 +8,14 @@ from django.core.validators import MaxValueValidator
 class DailyGoals(models.Model):
    user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
    water_goal = models.PositiveIntegerField(default=0)
-   exercise_goal = models.PositiveIntegerField(default=0)
-   calorie_goal = models.PositiveIntegerField(default=0) # as calorias devia ser uma janela de valores!
+   exercise_time_goal = models.PositiveIntegerField(default=0) # exemplo: [tempo 10] * [tip.ex hard *3]
+   calorie_goal = models.PositiveIntegerField(default=0)
    # Adicione outros campos de meta, se necessário
+
+class ExerciseType(models.Model):
+   exercise_type = models.CharField(max_length=100)
+   exercise_difficulty = models.PositiveIntegerField(default=1)
+
 
 # --- XP ---
 
