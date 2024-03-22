@@ -16,12 +16,12 @@ def water_consumption(request):
            # Suponha que o usuário ganhe 10 pontos de experiência por cada 100 ml de água consumida
            points_gained = int(water_consumption.amount / 100) * 10
            update_experience_points(request, points_gained)
-           return redirect('water_consumption')
+           return redirect('water')
    else:
        form = WaterConsumptionForm()
 
    water_data = WaterConsumption.objects.filter(user=request.user)
-   return render(request, 'water_tracker/water_consumption.html', {'form': form, 'water_data': water_data})
+   return render(request, 'water.html', {'form': form, 'water_data': water_data})
 
 
 def update_daily_goals(request, amount_consumed):

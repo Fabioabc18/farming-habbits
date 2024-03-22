@@ -8,11 +8,11 @@
     <title>Farming Habits</title>
     <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i&amp;display=swap">
-    <link rel="stylesheet" href="{% static 'fonts/fontawesome-all.min.css' %}">
     <style>
         .login-bg {
             background: linear-gradient(#203E32, #1BAF5D);
         }
+
         .bt-login {
             background-color: #203E32;
         }
@@ -33,6 +33,11 @@
                                 <div class="p-5">
                                     <div class="text-center">
                                         <h4 class="text-dark mb-4">Seja bem vindo!</h4>
+                                        {% if message %}
+                                            <div class="alert alert-success" role="alert">
+                                                {{ message }}
+                                            </div>
+                                        {% endif %}
                                     </div>
                                     <h2>Regista a tua conta</h2>
                                     <form method="POST">
@@ -101,23 +106,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <h4> Já tem uma conta criada? <a
-                                        href="/accounts/login">Login</a></h4>
-                                <script
-                                    src="{% static 'bootstrap/js/bootstrap.min.js' %} "
-                                    ></script>
-                                <script
-                                    src="{% static 'js/bs-init.js' %}" ></script>
-                                <script
-                                    src="{% static 'js/theme.js' %}"></script>
-                                {% if redirect %}
-                                <script>
-                                    function redirect(){       window.location.href = "{% url 'login' %}";
-                                    }
-
-                                    setTimeout(redirect, 3000);
-                                </script>
-                                {% endif %}
+                                    <h4> Já tem uma conta criada? <a href="/accounts/login">Login</a></h4>
                                 </div>
                             </div>
                         </div>
@@ -129,6 +118,15 @@
     <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
     <script src="{% static 'js/bs-init.js' %}"></script>
     <script src="{% static 'js/theme.js' %}"></script>
+    {% if redirect %}
+    <script>
+        function redirect() {
+            window.location.href = "{% url 'login' %}";
+        }
+        setTimeout(redirect, 3000);
+    </script>
+    {% endif %}
 </body>
 
 </html>
+
