@@ -6,7 +6,33 @@ from django.contrib.auth.models import User
 from django.shortcuts import render,redirect
 from django.contrib.auth import authenticate, login 
 from django.contrib import messages
+from django.contrib.auth.backends import UserModel
 
+
+def login_view(request):
+    if request.method == "POST":
+        email = request.POST["email"]
+        password = request.POST["password"]
+        
+        if not email or not password:
+            messages.error(request, "Por favor,providencie o username e password.")
+            return HttpResponse("Pff providencie os dados corretos!")
+        try: 
+
+            username = User.objects.get(email=email.lower()).username
+
+        except UserModel.DoesNotExist:
+            return render(request, "registration/login.html") 
+        user = authenticate(username=username, password=password)
+        
+        if user is not None:
+            login(request, user)
+            return redirect("home")
+        else:
+            messages.error(request, "Username inválido ou password.")
+            return HttpResponse("Username inválido ou password.")
+
+    return render(request, "registration/login.html")
 
 def register(request):
     template = loader.get_template("registration/register.html")
@@ -59,22 +85,3 @@ def register(request):
         }
         return HttpResponse(template.render(context, request))
     
-def login_view(request):
-    if request.method == "POST":
-        username = request.POST.get("username", "").lower().strip()
-        password = request.POST.get("password", "").strip()
-#         user = authenticate(username=username, password=password)
-        if not username or not password:
-            messages.error(request, "Por favor,providencie o username e password.")
-            return redirect("home")
-
-        user = authenticate(username=username, password=password)
-        
-        if user is not None:
-            login(request, user)
-            return redirect("home")
-        else:
-            messages.error(request, "Username inválido ou password.")
-            return redirect("home")
-
-    return render(request, "registration/login.html")
