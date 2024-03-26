@@ -1,7 +1,29 @@
 
-colher o fruto:
-
-<form action="{% url 'collect_plant' plant_progress.id %}" method="post">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Plant Progress</title>
+</head>
+<body>
+   <h1>Plant Progress</h1>
+   <form action="{% url 'collect_plant' plant_progress.id %}" method="post">
     {% csrf_token %}
     <button type="submit">Collect Plant</button>
 </form>
+  
+   <h2>----Plant progress----:</h2>
+   <ul>
+       {% for entry in water_data %}
+           <li>{{ entry }}</li>
+       {% empty %}
+           <li>Progresso da planta</li>
+       {% endfor %}
+   </ul>
+
+   <h2>Your Experience Points</h2>
+   <p>You have {{  }} experience points. Level {{  }}</p>
+</body>
+</html>
+
