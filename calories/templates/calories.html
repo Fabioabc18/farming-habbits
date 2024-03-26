@@ -1,0 +1,21 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Calories Consumption Tracker</title>
+</head>
+<body>
+   <h1>Calories Consumption Tracker</h1>
+   <form method="POST">
+       {% csrf_token %}
+       {{ form.as_p }}
+       <button type="submit">Submit</button>
+   </form>
+
+
+   <h2>Your Experience Points</h2>
+   <p>You have {{ user_experience.points }} experience points. Level {{ user_experience.level }}</p>
+</body>
+</html>
