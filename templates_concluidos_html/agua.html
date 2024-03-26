@@ -16,8 +16,8 @@
 
 <body id="page-top">
     <div id="wrapper">
-        <div class="d-flex flex-column" id="profile" style="height: 1287.53px;" data-bs-spy="scroll">
-            <div id="content" style="margin-bottom: 5px;">
+        <div class="d-flex flex-column" id="content-wrapper">
+            <div id="content">
                 <nav class="navbar navbar-expand bg-white shadow flex-xl-grow-1 mb-4 topbar static-top navbar-light justify-content-cente">
                     <div class="container-fluid">
                         <ul class="navbar-nav flex-fill justify-content-center align-items-center align-content-center align-self-center justify-content-center align-content-stretch align-items-center">
@@ -106,107 +106,185 @@
                     </div>
                 </nav>
                 <div class="container-fluid">
-                    <h3 class="text-dark mb-4">Profile</h3>
-                    <div class="row mb-3">
-                        <div class="col-lg-4">
-                            <div class="card mb-3">
-                                <div class="card-body text-center shadow"><img class="rounded-circle mb-3 mt-4" src="assets/img/avatars/Ativo%204.png" width="160" height="160">
-                                    <div class="mb-3"><button class="btn btn-primary btn-sm" type="button">Change Photo</button></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-8">
-                            <div class="row mb-3 d-none">
-                                <div class="col">
-                                    <div class="card text-white bg-primary shadow">
-                                        <div class="card-body">
-                                            <div class="row mb-2">
-                                                <div class="col">
-                                                    <p class="m-0">Peformance</p>
-                                                    <p class="m-0"><strong>65.2%</strong></p>
-                                                </div>
-                                                <div class="col-auto"><i class="fas fa-rocket fa-2x"></i></div>
-                                            </div>
-                                            <p class="text-white-50 small m-0"><i class="fas fa-arrow-up"></i>&nbsp;5% since last month</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div class="card text-white bg-success shadow">
-                                        <div class="card-body">
-                                            <div class="row mb-2">
-                                                <div class="col">
-                                                    <p class="m-0">Peformance</p>
-                                                    <p class="m-0"><strong>65.2%</strong></p>
-                                                </div>
-                                                <div class="col-auto"><i class="fas fa-rocket fa-2x"></i></div>
-                                            </div>
-                                            <p class="text-white-50 small m-0"><i class="fas fa-arrow-up"></i>&nbsp;5% since last month</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col">
-                                    <div class="card shadow mb-3">
-                                        <div class="card-header py-3">
-                                            <p class="text-primary m-0 fw-bold">Dados de Login</p>
-                                        </div>
-                                        <div class="card-body">
-                                            <form>
-                                                <div class="row">
-                                                    <div class="col">
-                                                        <div class="mb-3"><label class="form-label" for="username"><strong>Username</strong></label><input class="form-control" type="text" id="username" placeholder="user.name" name="username"></div>
-                                                    </div>
-                                                    <div class="col">
-                                                        <div class="mb-3"><label class="form-label" for="email"><strong>Email Address</strong></label><input class="form-control" type="email" id="email" placeholder="user@example.com" name="email"></div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col">
-                                                        <div class="mb-3"><label class="form-label" for="first_name"><strong>First Name</strong></label><input class="form-control" type="text" id="first_name" placeholder="John" name="first_name"></div>
-                                                    </div>
-                                                    <div class="col">
-                                                        <div class="mb-3"><label class="form-label" for="last_name"><strong>Last Name</strong></label><input class="form-control" type="text" id="last_name" placeholder="Doe" name="last_name"></div>
-                                                    </div>
-                                                </div>
-                                                <div class="mb-3"><button class="btn btn-primary btn-sm" type="submit">Save Settings</button></div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                    <div class="card shadow">
-                                        <div class="card-header py-3">
-                                            <p class="text-primary m-0 fw-bold">Contact de Utilizador</p>
-                                        </div>
-                                        <div class="card-body">
-                                            <form>
-                                                <div class="mb-3"><label class="form-label" for="address"><strong>Cidade</strong></label><input class="form-control" type="text" id="address" name="address" placeholder="Lisboa"></div>
-                                                <div class="row">
-                                                    <div class="col">
-                                                        <div class="mb-3"><label class="form-label form-label" for="aniversario"><strong>Aniversário</strong></label><input id="city" class="form-control" placeholder="10-05-1991" name="aniversario"></div>
-                                                    </div>
-                                                    <div class="col">
-                                                        <div class="mb-3"><label class="form-label" for="country"><strong>Telefone</strong></label><input id="country" class="form-control" type="number" placeholder="91 *** *** *" name="country" /></div>
-                                                    </div>
-                                                </div>
-                                                <div class="mb-3"><button class="btn btn-primary btn-sm" type="submit">Save&nbsp;Settings</button></div>
-                                            </form>
-                                        </div>
+                    <div class="col mb-4" style="background: url(&quot;assets/img/inspiracao/9285000.jpg&quot;)">
+                        <div class="card shadow border-start-primary py-2" style="background: none;border-style: none;">
+                            <div class="card-body" style="color: rgba(133,135,150,0);">
+                                <div class="row align-items-center no-gutters">
+                                    <div class="col container-fluid" style="background: var(--bs-tertiary-color);padding: .5;padding-top: 5px;margin-top: -2px;">
+                                        <div class="text-uppercase text-primary fw-bold text-xs mb-1"><span style="color: var(--bs-primary-bg-subtle);padding: 0.5px;padding-top: 0px;margin-top: 12px;margin-bottom: 2px;">Frase do dia</span></div>
+                                        <div class="text-dark fw-bold h5 mb-0" style="color: var(--bs-gray-700);"><span style="margin: 0.5px;margin-top: 0.5px;padding-top: 0px;"><br><span style="font-weight: normal !important; color: rgb(13, 13, 13);">Cada passo que você dá em direção a um estilo de vida saudável é um investimento no seu futuro bem-estar</span><br><br></span></div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="card shadow mb-5">
-                        <div class="card-header py-3">
-                            <p class="text-primary m-0 fw-bold">Quer Sair?</p>
+                    <div class="d-sm-flex justify-content-between align-items-center mb-4"><a class="btn btn-primary btn-sm d-none d-sm-inline-block" role="button" href="#"><i class="fas fa-download fa-sm text-white-50"></i>&nbsp;Generate Report</a></div>
+                    <div class="row d-xl-flex d-xxl-flex justify-content-xl-center justify-content-xxl-center align-items-xxl-center">
+                        <div class="col-md-6 mb-4 col-xl-4">
+                            <h4 class="text-dark mb-0">Agua - Define a tua meta diária</h4>
+                            <div class="card shadow border-start-primary py-2">
+                                <div class="card-body m-xl-2 mb-xl-4">
+                                    <div class="row align-items-center no-gutters">
+                                        <div class="col me-2">
+                                            <div class="text-uppercase fw-bold text-xs mb-1 text-success"><span>meta diaria</span></div><span class="text-dark fw-bold h5 mb-0">2litros</span>
+                                            <div class="text-dark fw-bold h5 mb-0"></div>
+                                        </div>
+                                        <div class="col-auto"><img src="assets/img/Icones/lista.png" style="width: 35px;"></div>
+                                    </div><select class="mx-2 mt-2" style="width: 90%;">
+                                        <optgroup label="A sua meta">
+                                            <option value="12" selected="">1litro</option>
+                                            <option value="13">1.5litros</option>
+                                            <option value="14">2litros</option>
+                                            <option value="15">2.5litros</option>
+                                            <option value="16">3litros</option>
+                                        </optgroup>
+                                    </select>
+                                </div>
+                            </div>
                         </div>
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <form>
-                                        <div class="mb-3"><button class="btn btn-primary btn-sm" type="submit">Logout</button></div>
-                                    </form>
+                        <div class="col">
+                            <div class="d-sm-flex justify-content-between align-items-center mb-4"></div>
+                        </div>
+                        <div class="col-md-6 mb-4 col-xl-4">
+                            <h4 class="text-dark mb-0">Regista os teus consumos</h4>
+                            <div class="card shadow border-start-info py-1">
+                                <div class="card-body">
+                                    <div class="row align-items-center no-gutters">
+                                        <div class="col me-2">
+                                            <div class="text-uppercase fw-bold text-xs mb-1 text-success"><span>Agua consumida</span></div>
+                                            <div class="row g-0 align-items-center">
+                                                <div class="col-auto">
+                                                    <div class="text-dark fw-bold h5 mb-0 me-3"></div>
+                                                    <div class="text-dark fw-bold h5 mb-0 me-3"><input type="text"></div>
+                                                </div>
+                                                <div class="col"><img src="assets/img/Icones/agua.png" style="width: 35px;"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="progress progress-sm m-1">
+                                        <div class="progress-bar bg-info" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%;"><span class="visually-hidden">50%</span></div>
+                                    </div><button class="btn btn-info btn-sm m-1 mb-2" type="button">Submeter</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="d-sm-flex justify-content-between align-items-center mb-4"></div>
+                        </div>
+                        <div class="col-md-6 col-xl-3 mb-4">
+                            <h4 class="text-dark mb-0">As tuas conquistas</h4>
+                            <div class="card shadow border-start-warning py-2">
+                                <div class="card-body m-xl-3 mb-xl-4">
+                                    <div class="row align-items-center no-guttersm-xl-2 mb-xl-4">
+                                        <div class="col me-2">
+                                            <div class="text-uppercase fw-bold text-xs mb-1 text-success"><span>Conquistas</span></div>
+                                            <div class="text-dark fw-bold h5 mb-0"><span>XP</span></div>
+                                            <div class="text-dark fw-bold h5 mb-0"><span>nivel</span></div>
+                                        </div>
+                                        <div class="col-auto"><img src="assets/img/Icones/metas.png" style="width: 35px;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col col-lg-6 col-xl-6">
+                            <div class="d-sm-flex justify-content-between align-items-center mb-4">
+                                <h3 class="text-dark mb-0">Historico de consumo</h3>
+                            </div>
+                            <div class="card shadow mb-4">
+                                <div class="row" style="height: auto;max-height: inherit;width: auto;">
+                                    <div class="col">
+                                        <div id="dataTable-1" class="table-responsive table mt-2" role="grid" aria-describedby="dataTable_info" style="height:auto;"><table id="dataTable" class="table my-0">
+        <thead>
+            <tr>
+                <th>Data</th>
+                <th>Litros</th>
+                <th>Total XP</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>2008/11/28</td>
+                <td>1L</td>
+                <td>30xp</td>
+            </tr>
+            <tr>
+                <td>2008/11/28</td>
+                <td>1L</td>
+                <td>30xp</td>
+            </tr>
+            <tr>
+                <td>2008/11/28</td>
+                <td>1L</td>
+                <td>30xp</td>
+            </tr>
+            <tr>
+                <td>2008/11/28</td>
+                <td>1L</td>
+                <td>30xp</td>
+            </tr>
+        </tbody>
+        <tbody>
+            <tr>
+                <th>Data</th>
+                <th>Litros</th>
+                <th>Total XP</th>
+            </tr>
+        </tbody>
+    </table></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col col-lg-6 col-xl-6">
+                            <div class="d-sm-flex justify-content-between align-items-center mb-4">
+                                <h3 class="text-dark mb-0">Consumos</h3>
+                            </div>
+                            <div class="card shadow mb-4">
+                                <div class="card-header d-flex justify-content-between align-items-center">
+                                    <h6 class="text-primary fw-bold m-0">Garfico de consumo semanal</h6>
+                                    <div class="dropdown no-arrow"><button class="btn btn-link btn-sm dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown" type="button"><i class="fas fa-ellipsis-v text-gray-400"></i></button>
+                                        <div class="dropdown-menu shadow dropdown-menu-end animated--fade-in">
+                                            <p class="text-center dropdown-header">dropdown header:</p><a class="dropdown-item stretched-link" href="index.html" data-bs-target="grafico_mes">&nbsp;Action</a><a class="dropdown-item" href="grafico_semana" data-bs-target="grafico_semana">&nbsp;Another action</a>
+                                            <div class="dropdown-divider"></div><a class="dropdown-item" href="#">&nbsp;Something else here</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body text-truncate" id="grafico_mes">
+                                    <div class="mb-2"></div>
+                                    <div id="mensal" class="chart-area"><canvas data-bss-chart="{&quot;type&quot;:&quot;bar&quot;,&quot;data&quot;:{&quot;labels&quot;:[&quot;Jan&quot;,&quot;Fev&quot;,&quot;Mar&quot;,&quot;Abr&quot;,&quot;Mai&quot;,&quot;Jun&quot;,&quot;Jul&quot;,&quot;Ago&quot;,&quot;Set&quot;,&quot;Out&quot;,&quot;Nov&quot;,&quot;Dez&quot;],&quot;datasets&quot;:[{&quot;label&quot;:&quot;&quot;,&quot;data&quot;:[&quot;1&quot;,&quot;2&quot;,&quot;3.5&quot;,&quot;4.5&quot;,&quot;&quot;]}]},&quot;options&quot;:{&quot;maintainAspectRatio&quot;:false,&quot;legend&quot;:{&quot;display&quot;:false,&quot;labels&quot;:{&quot;fontStyle&quot;:&quot;normal&quot;}},&quot;title&quot;:{&quot;fontStyle&quot;:&quot;normal&quot;},&quot;scales&quot;:{&quot;xAxes&quot;:[{&quot;gridLines&quot;:{&quot;color&quot;:&quot;rgb(234, 236, 244)&quot;,&quot;zeroLineColor&quot;:&quot;rgb(234, 236, 244)&quot;,&quot;drawBorder&quot;:false,&quot;drawTicks&quot;:false,&quot;borderDash&quot;:[&quot;2&quot;],&quot;zeroLineBorderDash&quot;:[&quot;2&quot;],&quot;drawOnChartArea&quot;:false},&quot;ticks&quot;:{&quot;fontColor&quot;:&quot;#858796&quot;,&quot;fontStyle&quot;:&quot;normal&quot;,&quot;padding&quot;:20}}],&quot;yAxes&quot;:[{&quot;gridLines&quot;:{&quot;color&quot;:&quot;rgb(234, 236, 244)&quot;,&quot;zeroLineColor&quot;:&quot;rgb(234, 236, 244)&quot;,&quot;drawBorder&quot;:false,&quot;drawTicks&quot;:false,&quot;borderDash&quot;:[&quot;2&quot;],&quot;zeroLineBorderDash&quot;:[&quot;2&quot;]},&quot;ticks&quot;:{&quot;fontColor&quot;:&quot;#858796&quot;,&quot;fontStyle&quot;:&quot;normal&quot;,&quot;padding&quot;:20}}]}}}"></canvas></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="d-sm-flex justify-content-between align-items-center mb-4"></div>
+                            <div class="d-sm-flex justify-content-between align-items-center mb-4">
+                                <h3 class="text-dark mb-0">Partilha com os teus amigos</h3>
+                            </div>
+                            <div class="row text-center d-xl-flex d-xxl-flex justify-content-xl-center justify-content-xxl-center">
+                                <div class="col mb-4 col-lg-3 col-sm-12 col-md-12 col-12">
+                                    <div class="card text-white bg-success shadow">
+                                        <div class="card-body">
+                                            <p class="text-center m-0">WhatApp</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col mb-4 col-lg-3">
+                                    <div class="card text-white bg-info shadow">
+                                        <div class="card-body">
+                                            <p class="text-center m-0">Facebook</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col mb-4 col-lg-3">
+                                    <div class="card text-white bg-warning shadow">
+                                        <div class="card-body">
+                                            <p class="text-center m-0">Instagram</p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -227,6 +305,7 @@
         </div>
     </div>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/chart.min.js"></script>
     <script src="assets/js/bs-init.js"></script>
     <script src="assets/js/theme.js"></script>
 </body>
