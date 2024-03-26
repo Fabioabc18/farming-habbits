@@ -1,65 +1,39 @@
 from django.http import HttpResponse
-from django.shortcuts import redirect, render
+from django.shortcuts import redirect
 from .forms import PlantSelectionForm
-from .models import Plant, PlantProgress, UserCollection
-
+from .models import Plant, PlantProgress
+from django.template import loader
 
 def plant_selection(request):
     if request.method == 'POST':
         form = PlantSelectionForm(request.POST)
         if form.is_valid():
-            plant_id = form.cleaned_data['plant']
-            return redirect('plant_detail', plant_id=plant_id)
+            plant = form.cleaned_data['plant']
+            return redirect('plant_detail', plant_id=plant.id)
     else:
         form = PlantSelectionForm()
-    
-    context = {'form': form}
-    return HttpResponse(render(request, 'plant.html', context))
 
+    context = {'form': form}
+    template = loader.get_template('plant.html')
+    return HttpResponse(template.render(context, request))
 
 def plant_detail(request, plant_id):
+    # Obtenha a planta com base no ID fornecido
     plant = Plant.objects.get(id=plant_id)
-    progress, created = PlantProgress.objects.get_or_create(user=request.user, plant=plant)
-    
-    if request.method == 'POST':
-        # Update experience points for the plant
-        progress.experience_points += 5  # Assuming 5 experience points for each action
-        progress.save()
+    # Obtenha o progresso da planta para o usuário atual
+    progress, _ = PlantProgress.objects.get_or_create(user=request.user, plant=plant)
 
-        # Check if the plant should level up
-        if progress.experience_points >= 200:
-            progress.stage += 1
-            progress.experience_points = 0  # Reset experience points for the next stage
-            progress.save()
-
-            
-        
-        return redirect('plant.html')
-
+    # Construa o contexto com os dados da planta e do progresso
     context = {
-        'plant': plant, 
+        'plant': plant,
         'progress': progress
+    }
 
-        }
-    return HttpResponse(render(request, 'plant.html', context))
+    # Carregue o template
+    template = loader.get_template('plant_detail.html')
 
+    # Renderize o template com o contexto
+    rendered_template = template.render(context, request)
 
-def collect_plant(request, plant_progress_id):
-    plant_progress = PlantProgress.objects.get(id=plant_progress_id)
-
-    # Add the fruit to the user's collection
-    user_collection, created = UserCollection.objects.get_or_create(user=request.user)
-    user_collection.fruits.add(plant_progress.plant)
-
-    # Once the action is performed, you can reset the plant's progress or leave it unchanged
-    # For example, you can reset the stage and experience points to 0:
-    plant_progress.stage = 1
-    plant_progress.experience_points = 0
-    plant_progress.save()
-
-    ### OR ##################################################################
-
-    # Delete the progress entry
-    plant_progress.delete()
-
-    return redirect('plant.html')
+    # Retorne a resposta HTTP com o template renderizado
+    return HttpResponse(rendered_template)

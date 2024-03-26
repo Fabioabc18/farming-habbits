@@ -11,9 +11,6 @@
     <p>Stage: {{ progress.stage }}</p>
     <p>Experience Points: {{ progress.experience_points }}</p>
     
-    <form action="{% url 'collect_plant' progress.id %}" method="post">
-        {% csrf_token %}
-        <button type="submit">Collect Plant</button>
-    </form>
+    
 </body>
 </html>
