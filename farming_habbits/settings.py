@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'experience',
     'water',
     'plant',
+
     
 ]
 

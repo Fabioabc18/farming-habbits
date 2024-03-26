@@ -1,4 +1,5 @@
-from django.shortcuts import render, redirect
+from django.http import HttpResponse
+from django.shortcuts import redirect, render
 from .forms import PlantSelectionForm
 from .models import Plant, PlantProgress, UserCollection
 
@@ -12,10 +13,8 @@ def plant_selection(request):
     else:
         form = PlantSelectionForm()
     
-    context = {
-            'form': form
-        }
-    return render(request, 'plant_selection.html', context)
+    context = {'form': form}
+    return HttpResponse(render(request, 'plant.html', context))
 
 
 def plant_detail(request, plant_id):
@@ -23,24 +22,26 @@ def plant_detail(request, plant_id):
     progress, created = PlantProgress.objects.get_or_create(user=request.user, plant=plant)
     
     if request.method == 'POST':
-        if progress.stage < plant.stages:
-            # Update experience points for the plant
-            progress.experience_points += 5  # Assuming 5 experience points for each action
+        # Update experience points for the plant
+        progress.experience_points += 5  # Assuming 5 experience points for each action
+        progress.save()
+
+        # Check if the plant should level up
+        if progress.experience_points >= 200:
+            progress.stage += 1
+            progress.experience_points = 0  # Reset experience points for the next stage
             progress.save()
 
-            # Check if the plant should level up
-            if progress.experience_points >= 200 * progress.stage:
-                progress.stage += 1
-                progress.experience_points = 0  # Reset experience points for the next stage
-                progress.save()
+            
         
-        return redirect('plant_selection')
+        return redirect('plant.html')
 
     context = {
-            'plant': plant, 'progress': progress
+        'plant': plant, 
+        'progress': progress
+
         }
-    
-    return render(request, 'plant_detail.html', context)
+    return HttpResponse(render(request, 'plant.html', context))
 
 
 def collect_plant(request, plant_progress_id):
@@ -61,4 +62,4 @@ def collect_plant(request, plant_progress_id):
     # Delete the progress entry
     plant_progress.delete()
 
-    return redirect('plant_selection')
+    return redirect('plant.html')
