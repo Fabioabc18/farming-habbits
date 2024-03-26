@@ -1,0 +1,7 @@
+
+colher o fruto:
+
+<form action="{% url 'collect_plant' plant_progress.id %}" method="post">
+    {% csrf_token %}
+    <button type="submit">Collect Plant</button>
+</form>

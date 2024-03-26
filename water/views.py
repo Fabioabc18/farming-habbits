@@ -1,31 +1,46 @@
-from django.shortcuts import render, redirect
-from .models import WaterConsumption
+from django.http import HttpResponse
+from django.template import loader
+from django.shortcuts import render
 from .forms import WaterConsumptionForm
-from experience.models import ExperiencePoints, Plant, DailyGoals
+from experience.models import DailyGoals, ExperiencePoints
 from experience.views import update_experience_points
 
 
 def water_consumption(request):
-   if request.method == 'POST':
-       form = WaterConsumptionForm(request.POST)
-       if form.is_valid():
-           water_consumption = form.save(commit=False)
-           water_consumption.user = request.user
-           water_consumption.save()
-           update_daily_goals(request, water_consumption.amount)
-           # Suponha que o usuário ganhe 10 pontos de experiência por cada 100 ml de água consumida
-           points_gained = int(water_consumption.amount / 100) * 10
-           update_experience_points(request, points_gained)
-           return redirect('water')
-   else:
-       form = WaterConsumptionForm()
+    template = loader.get_template("water.html")
 
-   water_data = WaterConsumption.objects.filter(user=request.user)
-   return render(request, 'water.html', {'form': form, 'water_data': water_data})
+    if request.method == 'POST':
+        form = WaterConsumptionForm(request.POST)
+        if form.is_valid():
+            water_consumption = form.save(commit=False)
+            water_consumption.user = request.user
+            water_consumption.save()
+
+            update_experience_points(request.user, water_consumption.amount)
+            user_experience = ExperiencePoints.objects.get_or_create(user=request.user)[0]
+
+            context = {
+                "form" : form,
+                "user_experience": user_experience,
+            }
+
+            return HttpResponse ("registo com sucesso")
+    else:
+        form = WaterConsumptionForm()
+        user_experience = ExperiencePoints.objects.get_or_create(user=request.user)[0]
+        context = {
+                "form" : form,
+                "user_experience": user_experience,
+            }
+        return HttpResponse (template.render(context, request))
+
+
+
 
 
 def update_daily_goals(request, amount_consumed):
-   user_daily_goals, created = DailyGoals.objects.get_or_create(user=request.user)
-   # Atualiza os objetivos diários de água conforme necessário
-   user_daily_goals.water_goal += amount_consumed
-   user_daily_goals.save()
+    user_daily_goals, created = DailyGoals.objects.get_or_create(user=request.user)
+    # Atualiza os objetivos diários de água conforme necessário
+    user_daily_goals.water_goal += amount_consumed
+    user_daily_goals.save()
+
