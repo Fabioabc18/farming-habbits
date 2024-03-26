@@ -1,27 +1,34 @@
-from django.shortcuts import render, redirect
-from .forms import DailyGoalsForm, ExerciseTypeForm
+from django.http import HttpResponse
+from django.template import loader
+from .forms import ExerciseDoneForm
+from experience.models import ExperiencePoints
+from experience.views import update_experience_points
 
 
-def set_daily_goals(request):
+def exercise_done(request):
+    template = loader.get_template("exercise.html")
+
     if request.method == 'POST':
-        form = DailyGoalsForm(request.POST)
+        form = ExerciseDoneForm(request.POST)
         if form.is_valid():
-            daily_goal = form.save(commit=False)
-            daily_goal.user = request.user
-            daily_goal.save()
-            
-    else:
-        form = DailyGoalsForm()
-    return render(request, 'set_daily_goals.html', {'form': form})
+            exercise_done = form.save(commit=False)
+            exercise_done.user = request.user
+            exercise_done.save()
 
-def select_exercise(request):
-    if request.method == 'POST':
-        form = ExerciseTypeForm(request.POST)
-        if form.is_valid():
-            exercise = form.save(commit=False)
-            exercise.user = request.user
-            exercise.save()
-            
+            update_experience_points(request.user, exercise_done.time)
+            user_experience = ExperiencePoints.objects.get_or_create(user=request.user)[0]
+
+            context = {
+                "form" : form,
+                "user_experience": user_experience,
+            }
+
+            return HttpResponse ("registo com sucesso")
     else:
-        form = ExerciseTypeForm()
-    return render(request, 'select_exercise.html', {'form': form})
+        form = ExerciseDoneForm()
+        user_experience = ExperiencePoints.objects.get_or_create(user=request.user)[0]
+        context = {
+                "form" : form,
+                "user_experience": user_experience,
+            }
+        return HttpResponse (template.render(context, request))

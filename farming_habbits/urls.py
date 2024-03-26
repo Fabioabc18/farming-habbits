@@ -24,5 +24,6 @@ urlpatterns = [
     path('', include("water.urls")),
     path('', include("plant.urls")),
     path('', include("calories.urls")),
+    path('', include("exercise.urls")),
     path('admin/', admin.site.urls),
 ]

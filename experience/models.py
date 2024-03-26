@@ -1,6 +1,5 @@
 from django.db import models
 from django.contrib.auth import get_user_model
-from django.core.validators import MaxValueValidator
 
 
 # --- XP ---
@@ -28,9 +27,3 @@ class DailyGoals(models.Model):
    exercise_time_goal = models.PositiveIntegerField(default=0) # exemplo: [tempo 10] * [tip.ex hard *3]
    calorie_goal = models.PositiveIntegerField(default=0)
    # Adicione outros campos de meta, se necessário
-
-class ExerciseType(models.Model):
-   exercise_type = models.CharField(max_length=100)
-   exercise_difficulty = models.PositiveIntegerField(default=1)
-
-

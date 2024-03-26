@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'water',
     'plant',
     'calories',
+    'exercise',
 
     
 ]
