@@ -1,6 +1,5 @@
 from django.http import HttpResponse
 from django.template import loader
-from experience.models import ExperiencePoints
 from django.contrib.auth.decorators import login_required
 import requests
 
@@ -16,13 +15,11 @@ def home(request):
 
     response = requests.get(url, headers=headers, params=querystring)
     quote_data = response.json()
-    user_experience = ExperiencePoints.objects.get_or_create(user=request.user)[0]
+
     template = loader.get_template("home.html")
     context = {
         'quote_data': quote_data,
-        'username': request.user.username,
-        'user_experience': user_experience,
-        
+        'username': request.user.username
     }
     return HttpResponse(template.render(context, request))
 

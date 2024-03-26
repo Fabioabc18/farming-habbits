@@ -1,5 +1,6 @@
 from django.http import HttpResponse
 from django.template import loader
+from django.shortcuts import render
 from .forms import WaterConsumptionForm
 from experience.models import DailyGoals, ExperiencePoints
 from experience.views import update_experience_points
