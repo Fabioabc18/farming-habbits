@@ -4,6 +4,8 @@ from .forms import WaterConsumptionForm
 from experience.models import ExperiencePoints
 from .models import WaterConsumption
 from experience.views import update_experience_points
+from home.views import get_quote
+
 
 def water_consumption(request):
     template = loader.get_template("water.html")
@@ -19,8 +21,11 @@ def water_consumption(request):
             user_experience = ExperiencePoints.objects.get_or_create(user=request.user)[0]
             historico = WaterConsumption.objects.filter(user=request.user).order_by('-date')[:10]
 
+            quote_data = get_quote()
+            
             context = {
                 "form" : form,
+                'quote_data': quote_data,
                 "user_experience": user_experience,
                 "error_message": None,
                 'username': request.user.username,
@@ -33,8 +38,11 @@ def water_consumption(request):
             user_experience = ExperiencePoints.objects.get_or_create(user=request.user)[0]
             historico = WaterConsumption.objects.filter(user=request.user).order_by('-date')[:10]
 
+            quote_data = get_quote()
+            
             context = {
                 "form" : form,
+                'quote_data': quote_data,
                 "user_experience": user_experience,
                 'username': request.user.username,
                 'historico' : historico,
@@ -47,8 +55,11 @@ def water_consumption(request):
         user_experience = ExperiencePoints.objects.get_or_create(user=request.user)[0]
         historico = WaterConsumption.objects.filter(user=request.user).order_by('-date')[:10]
 
+        quote_data = get_quote()
+        
         context = {
             "form" : form,
+            'quote_data': quote_data,
             "user_experience": user_experience,
             'username': request.user.username,
             "error_message": None,
