@@ -4,7 +4,6 @@ from .forms import WaterConsumptionForm
 from experience.models import DailyGoals, ExperiencePoints
 from experience.views import update_experience_points
 
-
 def water_consumption(request):
     template = loader.get_template("water.html")
 
@@ -21,25 +20,31 @@ def water_consumption(request):
             context = {
                 "form" : form,
                 "user_experience": user_experience,
+                "error_message": None
             }
 
-            return HttpResponse ("registo com sucesso")
+            return HttpResponse("Registro com sucesso")
+        else:
+            # Se o formulário não for válido, renderize o template novamente com o formulário e uma mensagem de erro
+            user_experience = ExperiencePoints.objects.get_or_create(user=request.user)[0]
+            context = {
+                "form" : form,
+                "user_experience": user_experience,
+                "error_message": "Por favor, insira um valor válido para o consumo de água."
+            }
+            return HttpResponse(template.render(context, request))
+
     else:
         form = WaterConsumptionForm()
         user_experience = ExperiencePoints.objects.get_or_create(user=request.user)[0]
         context = {
-                "form" : form,
-                "user_experience": user_experience,
-            }
-        return HttpResponse (template.render(context, request))
-
-
-
-
+            "form" : form,
+            "user_experience": user_experience,
+            "error_message": None
+        }
+        return HttpResponse(template.render(context, request))
 
 def update_daily_goals(request, amount_consumed):
     user_daily_goals, created = DailyGoals.objects.get_or_create(user=request.user)
-    # Atualiza os objetivos diários de água conforme necessário
     user_daily_goals.water_goal += amount_consumed
     user_daily_goals.save()
-
