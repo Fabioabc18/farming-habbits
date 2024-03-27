@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
    <meta charset="UTF-8">
@@ -28,4 +28,373 @@
    <h2>Your Experience Points</h2>
    <p>You have {{ user_experience.points }} experience points. Level {{ user_experience.level }}</p>
 </body>
+</html>
+ -->
+
+{%load static%}
+{% load mathfilters %}
+<!DOCTYPE html>
+<html data-bs-theme="light" id="profile" lang="en" data-bs-spy="scroll">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Consumo de Água</title>
+    <link rel="stylesheet" href="{% static '/bootstrap/css/bootstrap.min.css'%}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i&amp;display=swap">
+    <link rel="stylesheet" href="{% static 'fonts/fontawesome-all.min.css'%}">
+    <link rel="stylesheet" href="{% static 'css/bs-theme-overrides.css' %}">
+    <link rel="stylesheet" href="{% static 'css/Banner-Heading-Image-images.css' %}">
+    <link rel="stylesheet" href="{% static '/css/untitled-1.css' %}">
+    <link rel="stylesheet" href="{% static '/css/untitled.css' %}">
+</head>
+
+<body id="page-top">
+    <div id="wrapper">
+        <div class="d-flex flex-column" id="content-wrapper">
+            <div id="content">
+                <nav class="navbar navbar-expand bg-white shadow flex-xl-grow-1 mb-4 topbar static-top navbar-light justify-content-cente">
+                    <div class="container-fluid">
+                        <ul class="navbar-nav flex-fill justify-content-center align-items-center align-content-center align-self-center justify-content-center align-content-stretch align-items-center">
+                            <li class="nav-item dropdown no-arrow">
+                                <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link end-10" aria-expanded="false" data-bs-toggle="dropdown" href="#"><img class="border rounded-circle img-profile" src="{% static '/img/avatars/avatar1.jpeg' %}"><span class="d-lg-inline me-2 text-gray-600 small">{{username}}</span></a>
+                                    <div class="dropdown-menu shadow dropdown-menu-sm-start animated--grow-in"><a class="dropdown-item" href="#"><i class="fas fa-user fa-sm fa-fw me-2 text-gray-400"></i>&nbsp;Profile</a><a class="dropdown-item" href="#"><i class="fas fa-cogs fa-sm fa-fw me-2 text-gray-400"></i>&nbsp;Settings</a><a class="dropdown-item" href="#"><i class="fas fa-list fa-sm fa-fw me-2 text-gray-400"></i>&nbsp;Activity log</a>
+                                        <div class="dropdown-divider"></div><a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt fa-sm fa-fw me-2 text-gray-400"></i>&nbsp;Logout</a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="nav-item dropdown no-arrow mx-1"><div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="#" style="margin-right: -20px;"><span class="badge bg-danger badge-counter">3+</span><i class="fas fa-bell fa-fw"></i></a>
+    <div class="dropdown-menu dropdown-menu-end dropdown-list animated--grow-in">
+        <h6 class="dropdown-header">alerts center</h6><a class="dropdown-item d-flex align-items-center" href="#">
+            <div class="me-3">
+                <div class="bg-primary icon-circle"><i class="fas fa-file-alt text-white"></i></div>
+            </div>
+            <div><span class="small text-gray-500">December 12, 2019</span>
+                <p>A new monthly report is ready to download!</p>
+            </div>
+        </a><a class="dropdown-item d-flex align-items-center" href="#">
+            <div class="me-3">
+                <div class="bg-success icon-circle"><i class="fas fa-donate text-white"></i></div>
+            </div>
+            <div><span class="small text-gray-500">December 7, 2019</span>
+                <p>$290.29 has been deposited into your account!</p>
+            </div>
+        </a><a class="dropdown-item d-flex align-items-center" href="#">
+            <div class="me-3">
+                <div class="bg-warning icon-circle"><i class="fas fa-exclamation-triangle text-white"></i></div>
+            </div>
+            <div><span class="small text-gray-500">December 2, 2019</span>
+                <p>Spending Alert: We&#39;ve noticed unusually high spending for your account.</p>
+            </div>
+        </a><a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
+    </div>
+</div></li>
+                            <li class="nav-item dropdown no-arrow mx-1">
+                                <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="#" style="margin-right: -14px;"><span class="badge bg-danger badge-counter">7</span><i class="fas fa-envelope fa-fw"></i></a>
+                                    <div class="dropdown-menu dropdown-menu-end dropdown-list animated--grow-in">
+                                        <h6 class="dropdown-header">alerts center</h6><a class="dropdown-item d-flex align-items-center" href="#">
+                                            <div class="dropdown-list-image me-3"><img class="rounded-circle" src="{% static '/img/avatars/avatar4.jpeg' %}">
+                                                <div class="bg-success status-indicator"></div>
+                                            </div>
+                                            <div class="fw-bold">
+                                                <div class="text-truncate"><span>Hi there! I am wondering if you can help me with a problem I've been having.</span></div>
+                                                <p class="small text-gray-500 mb-0">Emily Fowler - 58m</p>
+                                            </div>
+                                        </a><a class="dropdown-item d-flex align-items-center" href="#">
+                                            <div class="dropdown-list-image me-3"><img class="rounded-circle" src="{% static '/img/avatars/avatar2.jpeg' %}">
+                                                <div class="status-indicator"></div>
+                                            </div>
+                                            <div class="fw-bold">
+                                                <div class="text-truncate"><span>I have the photos that you ordered last month!</span></div>
+                                                <p class="small text-gray-500 mb-0">Jae Chun - 1d</p>
+                                            </div>
+                                        </a><a class="dropdown-item d-flex align-items-center" href="#">
+                                            <div class="dropdown-list-image me-3"><img class="rounded-circle" src="{% static '/img/avatars/avatar3.jpeg' %}">
+                                                <div class="bg-warning status-indicator"></div>
+                                            </div>
+                                            <div class="fw-bold">
+                                                <div class="text-truncate"><span>Last month's report looks great, I am very happy with the progress so far, keep up the good work!</span></div>
+                                                <p class="small text-gray-500 mb-0">Morgan Alvarez - 2d</p>
+                                            </div>
+                                        </a><a class="dropdown-item d-flex align-items-center" href="#">
+                                            <div class="dropdown-list-image me-3"><img class="rounded-circle" src="{% static '/img/avatars/avatar5.jpeg' %}">
+                                                <div class="bg-success status-indicator"></div>
+                                            </div>
+                                            <div class="fw-bold">
+                                                <div class="text-truncate"><span>Am I a good boy? The reason I ask is because someone told me that people say this to all dogs, even if they aren't good...</span></div>
+                                                <p class="small text-gray-500 mb-0">Chicken the Dog · 2w</p>
+                                            </div>
+                                        </a><a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
+                                    </div>
+                                </div>
+                                <div class="shadow dropdown-list dropdown-menu dropdown-menu-end" aria-labelledby="alertsDropdown"></div>
+                            </li>
+                            <div class="d-none d-sm-block topbar-divider"></div>
+                            <li class="nav-item dropdown no-arrow">
+                                <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link mx-xl-2 star-0" aria-expanded="false" data-bs-toggle="dropdown" href="#" style="overflow-x: auto;"><span class="d-lg-inline me-2 text-gray-600 small">Lvl {{ user_experience.level }}</span><img class="border rounded-circle img-profile" src="{% static '/img/avatars/avatar1.jpeg' %}"></a>
+                                    <div class="dropdown-menu shadow dropdown-menu-end animated--grow-in"><a class="dropdown-item" href="#"><i class="fas fa-user fa-sm fa-fw me-2 text-gray-400"></i>&nbsp;Profile</a><a class="dropdown-item" href="#"><i class="fas fa-cogs fa-sm fa-fw me-2 text-gray-400"></i>&nbsp;Settings</a><a class="dropdown-item" href="#"><i class="fas fa-list fa-sm fa-fw me-2 text-gray-400"></i>&nbsp;Activity log</a>
+                                        <div class="dropdown-divider"></div><a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt fa-sm fa-fw me-2 text-gray-400"></i>&nbsp;Logout</a>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+                <div class="container-fluid">
+                    <div class="col mb-4" style="background: url(&quot;assets/img/inspiracao/9285000.jpg&quot;)">
+                        <div class="card shadow border-start-primary py-2" style="background: none;border-style: none;">
+                            <div class="card-body" style="color: rgba(133,135,150,0);">
+                                <div class="row align-items-center no-gutters">
+                                    <div class="col container-fluid" style="background: var(--bs-tertiary-color);padding: .5;padding-top: 5px;margin-top: -2px;">
+                                        <div class="text-uppercase text-primary fw-bold text-xs mb-1"><span style="color: var(--bs-primary-bg-subtle);padding: 0.5px;padding-top: 0px;margin-top: 12px;margin-bottom: 2px;">Frase do dia</span></div>
+                                        <div class="text-dark fw-bold h5 mb-0" style="color: var(--bs-gray-700);"><span style="margin: 0.5px;margin-top: 0.5px;padding-top: 0px;"><br><span style="font-weight: normal !important; color: rgb(13, 13, 13);">Cada passo que você dá em direção a um estilo de vida saudável é um investimento no seu futuro bem-estar</span><br><br></span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-sm-flex justify-content-between align-items-center mb-4"><a class="btn btn-primary btn-sm d-none d-sm-inline-block" role="button" href="#"><i class="fas fa-download fa-sm text-white-50"></i>&nbsp;Generate Report</a></div>
+                    <div class="row d-xl-flex d-xxl-flex justify-content-xl-center justify-content-xxl-center align-items-xxl-center">
+                        <div class="col-md-6 mb-4 col-xl-4">
+                            <h4 class="text-dark mb-0">Agua - Define a tua meta diária</h4>
+                            <div class="card shadow border-start-primary py-2">
+                                <div class="card-body m-xl-2 mb-xl-4">
+                                    <div class="row align-items-center no-gutters">
+                                        <div class="col me-2">
+                                            <div class="text-uppercase fw-bold text-xs mb-1 text-success"><span>meta diaria</span></div><span class="text-dark fw-bold h5 mb-0">2litros</span>
+                                            <div class="text-dark fw-bold h5 mb-0"></div>
+                                        </div>
+                                        <div class="col-auto"><img src="{% static '/img/Icones/lista.png' %}" style="width: 35px;"></div>
+                                    </div><select class="mx-2 mt-2" style="width: 90%;">
+                                        <optgroup label="A sua meta">
+                                            <option value="12" selected="">1litro</option>
+                                            <option value="13">1.5litros</option>
+                                            <option value="14">2litros</option>
+                                            <option value="15">2.5litros</option>
+                                            <option value="16">3litros</option>
+                                        </optgroup>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="d-sm-flex justify-content-between align-items-center mb-4"></div>
+                        </div>
+                        <div class="col-md-6 mb-4 col-xl-4">
+                            <h4 class="text-dark mb-0">Regista os teus consumos</h4>
+                            {% if error_message %}
+                        <p style="color: red;">{{ error_message }}</p>
+                            {% endif %}
+                            <div class="card shadow border-start-info py-1">
+                                <div class="card-body">
+                                    <div class="row align-items-center no-gutters">
+                                        <div class="col me-2">
+                                            <div class="text-uppercase fw-bold text-xs mb-1 text-success"><span>Agua consumida</span></div>
+                                            <div class="row g-0 align-items-center">
+                                                <div class="col-auto">
+                                                    <div class="text-dark fw-bold h5 mb-0 me-3">
+                                                        <form method="POST">
+                                                            {% csrf_token %}
+                                                            {{ form.as_p }}
+                                                            <button type="submit" class="btn btn-info btn-sm m-1 mb-2">Submit</button>
+                                                        </form>
+                                                    </div>
+                                                   
+                                                </div>
+                                                <div class="col"><img src= "{% static '/img/Icones/agua.png' %}" style="width: 35px;"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="progress progress-sm m-1">
+                                        <div class="progress-bar bg-info" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%;"><span class="visually-hidden">50%</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="d-sm-flex justify-content-between align-items-center mb-4"></div>
+                        </div>
+                        <div class="col-md-6 col-xl-3 mb-4">
+                            <h4 class="text-dark mb-0">As tuas conquistas</h4>
+                            <div class="card shadow border-start-warning py-2">
+                                <div class="card-body m-xl-3 mb-xl-4">
+                                    <div class="row align-items-center no-guttersm-xl-2 mb-xl-4">
+                                        <div class="col me-2">
+                                            <div class="text-uppercase fw-bold text-xs mb-1 text-success"><span>Conquistas</span></div>
+                                            <div class="text-dark fw-bold h5 mb-0"><span>XP {{ user_experience.points }}</span></div>
+                                            <div class="text-dark fw-bold h5 mb-0"><span>Lvl {{ user_experience.level }}</span></div>
+                                        </div>
+                                        <div class="col-auto"><img src="{% static '/img/Icones/metas.png' %}" style="width: 35px;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col col-lg-6 col-xl-6">
+                            <div class="d-sm-flex justify-content-between align-items-center mb-4">
+                                <h3 class="text-dark mb-0">Historico de consumo</h3>
+                            </div>
+                            <div class="card shadow mb-4">
+                                <div class="row" style="height: auto;max-height: inherit;width: auto;">
+                                    <div class="col">
+                                        <div id="dataTable-1" class="table-responsive table mt-2" role="grid" aria-describedby="dataTable_info" style="height:auto;"><table id="dataTable" class="table my-0">
+        <thead>
+            <tr>
+                <th>Data</th>
+                <th>Cl</th>
+                <th>XP </th>
+                
+            </tr>
+        </thead>
+        
+        <tbody>
+            {% for entry in historico %}
+                <tr>
+                    <td>{{ entry.date }}</td>
+                    <td>{{ entry.amount }}Cl</td>
+                    <td>{{ entry.amount|mul:"2.0"}}xp</td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="3">Nenhum dado de consumo de água ainda.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+        <thead>
+            <tr>
+                <th>Data</th>
+                <th>Cl</th>
+                <th>Total XP</th>
+            </tr>
+        </thead>
+    </table>
+</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col col-lg-6 col-xl-6">
+                            <div class="d-sm-flex justify-content-between align-items-center mb-4">
+                                <h3 class="text-dark mb-0">Consumos</h3>
+                            </div>
+                            <div class="card shadow mb-4">
+                                <div class="card-header d-flex justify-content-between align-items-center">
+                                    <h6 class="text-primary fw-bold m-0">Garfico de consumo semanal</h6>
+                                    <div class="dropdown no-arrow"><button class="btn btn-link btn-sm dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown" type="button"><i class="fas fa-ellipsis-v text-gray-400"></i></button>
+                                        <div class="dropdown-menu shadow dropdown-menu-end animated--fade-in">
+                                            <p class="text-center dropdown-header">dropdown header:</p><a class="dropdown-item stretched-link" href="index.html" data-bs-target="grafico_mes">&nbsp;Action</a><a class="dropdown-item" href="grafico_semana" data-bs-target="grafico_semana">&nbsp;Another action</a>
+                                            <div class="dropdown-divider"></div><a class="dropdown-item" href="#">&nbsp;Something else here</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body text-truncate" id="grafico_mes">
+                                    <div class="mb-2"></div>
+                                    <div id="mensal" class="chart-area"><canvas data-bss-chart="{&quot;type&quot;:&quot;bar&quot;,&quot;data&quot;:{&quot;labels&quot;:[&quot;Jan&quot;,&quot;Fev&quot;,&quot;Mar&quot;,&quot;Abr&quot;,&quot;Mai&quot;,&quot;Jun&quot;,&quot;Jul&quot;,&quot;Ago&quot;,&quot;Set&quot;,&quot;Out&quot;,&quot;Nov&quot;,&quot;Dez&quot;],&quot;datasets&quot;:[{&quot;label&quot;:&quot;&quot;,&quot;data&quot;:[&quot;1&quot;,&quot;2&quot;,&quot;3.5&quot;,&quot;4.5&quot;,&quot;&quot;]}]},&quot;options&quot;:{&quot;maintainAspectRatio&quot;:false,&quot;legend&quot;:{&quot;display&quot;:false,&quot;labels&quot;:{&quot;fontStyle&quot;:&quot;normal&quot;}},&quot;title&quot;:{&quot;fontStyle&quot;:&quot;normal&quot;},&quot;scales&quot;:{&quot;xAxes&quot;:[{&quot;gridLines&quot;:{&quot;color&quot;:&quot;rgb(234, 236, 244)&quot;,&quot;zeroLineColor&quot;:&quot;rgb(234, 236, 244)&quot;,&quot;drawBorder&quot;:false,&quot;drawTicks&quot;:false,&quot;borderDash&quot;:[&quot;2&quot;],&quot;zeroLineBorderDash&quot;:[&quot;2&quot;],&quot;drawOnChartArea&quot;:false},&quot;ticks&quot;:{&quot;fontColor&quot;:&quot;#858796&quot;,&quot;fontStyle&quot;:&quot;normal&quot;,&quot;padding&quot;:20}}],&quot;yAxes&quot;:[{&quot;gridLines&quot;:{&quot;color&quot;:&quot;rgb(234, 236, 244)&quot;,&quot;zeroLineColor&quot;:&quot;rgb(234, 236, 244)&quot;,&quot;drawBorder&quot;:false,&quot;drawTicks&quot;:false,&quot;borderDash&quot;:[&quot;2&quot;],&quot;zeroLineBorderDash&quot;:[&quot;2&quot;]},&quot;ticks&quot;:{&quot;fontColor&quot;:&quot;#858796&quot;,&quot;fontStyle&quot;:&quot;normal&quot;,&quot;padding&quot;:20}}]}}}"></canvas></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="d-sm-flex justify-content-between align-items-center mb-4"></div>
+                            <div class="d-sm-flex justify-content-between align-items-center mb-4">
+                                <h3 class="text-dark mb-0">Partilha com os teus amigos</h3>
+                            </div>
+                            <div class="row text-center d-xl-flex d-xxl-flex justify-content-xl-center justify-content-xxl-center">
+                                <div class="col mb-4 col-lg-3 col-sm-12 col-md-12 col-12">
+                                    <div class="card text-white bg-success shadow">
+                                        <div class="card-body">
+                                            <p class="text-center m-0">WhatApp</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col mb-4 col-lg-3">
+                                    <div class="card text-white bg-info shadow">
+                                        <div class="card-body">
+                                            <p class="text-center m-0">Facebook</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col mb-4 col-lg-3">
+                                    <div class="card text-white bg-warning shadow">
+                                        <div class="card-body">
+                                            <p class="text-center m-0">Instagram</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <footer class="bg-white sticky-footer">
+                <div class="container my-auto">
+                    <ul
+                            class="nav nav-pills nav-fill bg-body-tertiary nav-tab rounded-0 fixed-bottom border-top"
+                            id="bottom-nav-2" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="active nav-link"
+                                    id="bottom-home-2" aria-label="home"
+                                    data-bs-toggle="tab" data-bs-target="#home"
+                                    type="button" role="tab"
+                                    style="background:var(--bs-primary-text-emphasis);">
+                                    <a href="/">
+                                        <img
+                                            src="{% static '/img/Icones/casa.png' %}"
+                                            style="width:35px;">
+                                    </a>
+                                   <span class="d-none">Home</span>
+                                </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button id="bottom-radar-4" class="nav-link"
+                                    aria-label="radar" data-bs-toggle="tab"
+                                    data-bs-target="#radar" type="button"
+                                    role="tab">
+                                    <a href="water">
+                                        <img
+                                            src="{% static '/img/Icones/agua.png' %}"
+                                            style="width:35px;">
+                                    </a>
+                                    <span class="d-none">New</span>
+                                </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button id="bottom-radar-5" class="nav-link"
+                                    aria-label="radar" data-bs-toggle="tab"
+                                    data-bs-target="#radar" type="button"
+                                    role="tab">
+                                    <a href="water">
+                                        <img
+                                            src="{% static '/img/Icones/comida.png' %}"
+                                            style="width:35px;">
+                                    </a>
+                                    <span class="d-none">New</span>
+                                </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button id="bottom-radar-6" class="nav-link"
+                                    aria-label="radar" data-bs-toggle="tab"
+                                    data-bs-target="#radar" type="button"
+                                    role="tab">
+                                    <a href="water">
+                                        <img
+                                            src="{% static '/img/Icones/peso.png' %}"
+                                            style="width:45px;">
+                                    </a>
+                                    <span class="d-none">New</span>
+                                </button>
+                            </li>
+                        </ul>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <script src="{% static '/bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="{% static '/js/chart.min.js' %}"></script>
+    <script src="{% static '/js/bs-init.js' %}"></script>
+    <script src="{% static '/js/theme.js' %}"></script>
+</body>
+
 </html>

@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'plant',
     'calories',
     'exercise',
+    'mathfilters'
 
     
 ]
