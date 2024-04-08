@@ -1,0 +1,20 @@
+1st create a DB with the name: farming_habits
+
+2nd run this  commands: 
+ py manage.py makemigrations
+py manape.py migrate
+
+3rd py manage.py runserver and you will need to create a user
+
+
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': "farming_habits",
+        'USER': "root",
+        'PASSWORD': "yourpassword",
+        'HOST': '127.0.0.1',
+        'PORT': 3306,
+    }
+}
