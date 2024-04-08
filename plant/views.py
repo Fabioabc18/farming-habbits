@@ -18,22 +18,22 @@ def plant_selection(request):
     return HttpResponse(template.render(context, request))
 
 def plant_detail(request, plant_id):
-    # Obtenha a planta com base no ID fornecido
+   
     plant = Plant.objects.get(id=plant_id)
-    # Obtenha o progresso da planta para o usuário atual
+    
     progress, _ = PlantProgress.objects.get_or_create(user=request.user, plant=plant)
 
-    # Construa o contexto com os dados da planta e do progresso
+    
     context = {
         'plant': plant,
         'progress': progress
     }
 
-    # Carregue o template
+    
     template = loader.get_template('plant_detail.html')
 
-    # Renderize o template com o contexto
+    
     rendered_template = template.render(context, request)
 
-    # Retorne a resposta HTTP com o template renderizado
+   
     return HttpResponse(rendered_template)
