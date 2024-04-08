@@ -92,7 +92,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': "farming_habits",
         'USER': "root",
-        'PASSWORD': "1234",
+        'PASSWORD': "",
         'HOST': '127.0.0.1',
         'PORT': 3306,
     }
@@ -146,6 +146,6 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.sapo.pt'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'fabioabc18@sapo.pt'
-EMAIL_HOST_PASSWORD = 'Pendao54'
-DEFAULT_FROM_EMAIL = 'fabioabc18@sapo.pt'
+EMAIL_HOST_USER = 'youremail'
+EMAIL_HOST_PASSWORD = 'yourpassword'
+DEFAULT_FROM_EMAIL = 'youremail'
